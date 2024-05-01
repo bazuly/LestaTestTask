@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TF-IDF Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-top: 50px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        li {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            padding: 20px;
+            width: calc(50% - 20px);
+            display: flex;
+            flex-direction: column;
+        }
+        li:nth-child(odd) {
+            margin-left: 20px;
+        }
+        li p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>TF-IDF Results</h2>
+    <ul>
+        <li>
+            <h3>TF Results</h3>
+            {% for word, tf in tf_result.items|slice:":50" %}
+                <p>{{ word }}: {{ tf }}</p>
+            {% endfor %}
+        </li>
+        <li>
+            <h3>IDF Results</h3>
+            {% for word, idf in idf_result.items|slice:":50" %}
+                <p>{{ word }}: {{ idf }}</p>
+            {% endfor %}
+        </li>
+    </ul>
+</body>
+</html>
